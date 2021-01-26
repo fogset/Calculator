@@ -13,8 +13,8 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-app.get('/hobbies', (request, response) => {
-  response.send('eat eat eat')
+app.get('/bmicalculator', (request, response) => {
+  response.sendFile(__dirname + "/bmiCalculator.html");
 });
 
 app.post("/", function(req, res){
@@ -22,4 +22,11 @@ app.post("/", function(req, res){
   var num2 = Number(req.body.num2);
   var result = num1 + num2;
   res.send("the result of the calculation is " + result);
+});
+
+app.post("/bmicalculator", function(req, res){
+  var weight = Number(req.body.weight);
+  var height = Number(req.body.height);
+  var result = weight * height;
+  res.send("Your BMI is " + result);
 });
