@@ -13,3 +13,7 @@ app.listen(port, () => {
 app.get('/hobbies', (request, response) => {
   response.send('eat eat eat')
 });
+
+app.post("/", function(req, res){
+  res.send("Thanks for posting that!")
+})
